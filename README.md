@@ -1,38 +1,30 @@
-> Esse arquivo é um modelo de exemplo para disponibilizar uma breve apresentação da sua solução para os avaliadores e mentores. É permitida qualquer tipo de adição, alteração ou exclusão dos tópicos e títulos de acordo com sua necessidade.
+# Elo Cash
 
-# Nome da solução
-
-### Nome do grupo
+### Union Squad! – Juliana Lima, Letícia Fiorito, Everton Arruda e Daniel Rocha
 
 #### **Descrição**
 
-Descreva de forma breve o tipo de solução que seu time está desenvolvendo e de que forma ela foi idealizada.
+Criamos um aplicativo que permite o usuário navega e pesquisar estabelecimentos ao seu redor que estejam oferecendo cashback (e que aceitem a bandeira Elo).
 
 #### **Solução**
 
-Dê mais detalhes sobre a solução, seus pontos positivos, como e porquê ele é inovador e é cabível para atuar.
+No modelo de negócio que idealizamos, inicialmente haveria um crescimento inorgânico, com a Elo reduzindo as tarifas de cartão para incentivar com que os estabelecimentos aderissem à política de cashback. Após este período de adesão dos comerciantes, a contrapartida seria o direcionamento de novos clientes (incentivados pelo cashback) ao estabelecimento, de modo que o restaurante teria que arcar com os custos de manter o cashback (ou optar por cessá-lo).
 
 #### **Tecnologias**
 
-Forneça informações das tecnologias principais utilizadas no projeto.
+Além do georreferenciamento, utilizamos tecnologias de cashless para reduzir a fricção na hora da compra, com o pagamento por meio de QR Code.
 
 #### **APIs utilizadas**
 
-Forneça em formato de lista todas as APIs utilizadas dos parceiros<br>
-Ex:
-1. Geolocalização - **Here**
-2. Transação - **Elo**
-3. Chatbot - **Zenvia**
+1. Isoline Routing e Geocodign and Search - **Here**
+2. Hub QRCode Elo Credenciadoras- **Elo**
 
 #### **Execução**
 
-Descreva um guia de como executar a aplicação e as tecnologias utilizadas.
-
+Como desenvolvemos o aplicativo em HTML e CSS, para executá-lo é preciso abrir o navegador do celular para visualizar a versão mobile.
 
 #### **Informações adicionais**
 
-Forneça informações adicionais, adicione novos tópicos ou subtópicos. Utilize essa sessão para definir outros aspectos do projeto que julgar necessário descrever.
+Um dos elementos centrais para popularizar meios de pagamentos digitais é oferecer facilidades para pequenos e médios negócios, como MEIs, bem como dar incentivos para que os consumidores explorem as possibilidades das novas tecnologias. Por meio da nossa estratégia de cashback, é criado um efeito de rede onde os comerciantes passam a ter mais clientes, e os consumidores passam a enxergar mais vantagens na cultura cashless. Esse ciclo virtuoso é reforçado cada vez mais conforme aumenta-se o número de estabelecimentos e usuários da nossa solução, gerando um impulso para a popularização da plataforma digital da Elo.
 
 ----------
-
-> Após o término do evento, todos os repositórios serão arquivados, impedindo o envio de novos _commits_. No entando, os integrantes estarão livres para ler e mover o código desenvolvido para um repositório ou organização própria e continuar com o desenvolvimento do mesmo.
