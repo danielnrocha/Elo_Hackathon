@@ -14,9 +14,9 @@
 <body>
     <div class="header-container">
         <div class="logo-image"><img src="/style/img/elocashlogo.png" alt="logoelocash"></div>
-    
+
     </div>
-    
+
         <div class="main-section">
             <div class="text-heading1">
                 <h1 class="cheers">Olá, Pedro Silva!</h1>
@@ -26,6 +26,76 @@
             </div>
             <div class="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5614.670516947294!2d-46.85571158398323!3d-23.504186240098928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf0226930a3b0b%3A0xca7a8dce257c0c44!2sAlameda%20Xingu%2C%20512%20-%20Alphaville%20Industrial%2C%20Barueri%20-%20SP%2C%2006455-030!5e0!3m2!1sen!2sbr!4v1603929244176!5m2!1sen!2sbr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <script type="text/javascript">
+
+                // MAP RO SEARCH AND MARK LOCATIONS
+                // Instantiate a map and platform object:
+                var platform = new H.service.Platform({
+                  'apikey': '{sD5vmaKIFhFmx37PvFl_tDy7FF2-NWZQU8QQcUb_LZ8}'
+                });
+
+                // Get an instance of the geocoding service:
+                var service = platform.getSearchService();
+
+                // Call the geocode method with the geocoding parameters,
+                // the callback and an error callback function:
+                service.geocode({
+                  q: 'Alameda Xingu, 512 - Alphaville Industrial, Barueri - SP'
+                }, (result) => {
+                  // Add a marker for each location found
+                  result.items.forEach((item) => {
+                    map.addObject(new H.map.Marker(item.position));
+                  });
+                }, alert);
+
+
+                // ISOLINE AROUND A POINT
+                var routingParams = {
+                  'mode': 'fastest;car;',
+                  'start': 'geo!-23.5046677,-46.8510711'
+                  'range': '1200',
+                  'rangetype': 'time'
+                };
+
+                // Define a callback function to process the isoline response.
+                var onResult = function(result) {
+                  var center = new H.geo.Point(
+                      result.response.center.latitude,
+                      result.response.center.longitude),
+                    isolineCoords = result.response.isoline[0].component[0].shape,
+                    linestring = new H.geo.LineString(),
+                    isolinePolygon,
+                    isolineCenter;
+
+                  // Add the returned isoline coordinates to a linestring:
+                  isolineCoords.forEach(function(coords) {
+                  linestring.pushLatLngAlt.apply(linestring, coords.split(','));
+                  });
+
+                  // Create a polygon and a marker representing the isoline:
+                  isolinePolygon = new H.map.Polygon(linestring);
+                  isolineCenter = new H.map.Marker(center);
+
+                  // Add the polygon and marker to the map:
+                  map.addObjects([isolineCenter, isolinePolygon]);
+
+                  // Center and zoom the map so that the whole isoline polygon is
+                  // in the viewport:
+                  map.getViewModel().setLookAtData({bounds: isolinePolygon.getBoundingBox()});
+                };
+
+                // Get an instance of the routing service:
+                var router = platform.getRoutingService();
+
+                // Call the Routing API to calculate an isoline:
+                router.calculateIsoline(
+                  routingParams,
+                  onResult,
+                  function(error) {
+                  alert(error.message);
+                  }
+                );
+                </script>
             </div>
             <div class="credit-card-section">
                 <p >•••• •••• •••• 1234</p>
