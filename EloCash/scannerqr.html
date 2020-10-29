@@ -12,11 +12,77 @@
     <title>EloCash</title>
 </head>
 <body>
+    <script type="text/javascript">
+    // CREATE CREDENTIALS
+    import fetch from 'isomorphic-fetch'
+    import * as Bcrypter from './bcrypter'
+
+    const graphQLurl = 'https://hml-api.elo.com.br/graphql'
+
+    export function generateBcryptPassword(params) {
+    	const { username, password } = params
+    	const usernameSalt = Bcrypter.generateSaltFromUsername(username)
+    	return Bcrypter.generateBcryptPassword(usernameSalt, password)
+    }
+
+    export function createChallenge(params) {
+    	const bcryptPassword = params.bcryptPassword
+    	return Bcrypter.generateChallenge(params.eloSalt, bcryptPassword)
+    }
+
+    export const callAPI = async (client_id, variables, query) => {
+    	const response = await fetch(graphQLurl, {
+    		method: 'POST',
+    		headers: {
+    			'Content-Type': 'application/json',
+    			client_id
+    		},
+    		body: JSON.stringify({
+    			query,
+    			variables
+    		})
+    	})
+    	return response
+    }
+
+    // MORE CREDENTIALS
+    import bcrypt from 'bcryptjs'
+    import crypto from 'crypto-js'
+
+    function hexToBytes(hex) {
+    	let bytes = []
+    	for (let c = 0; c < hex.length; c += 2) {
+    		bytes.push(parseInt(hex.substr(c, 2), 16))
+    	}
+    	return bytes
+    }
+
+    export function generateSaltFromUsername(username) {
+    	const usernameSha256 = crypto.SHA256(username.toString())
+    	const generatedSalt = `$2a$12$${bcrypt.encodeBase64(
+    		hexToBytes(usernameSha256.toString()),
+    		16
+    	)}`
+    	return generatedSalt
+    }
+
+    export function generateBcryptPassword(eloSalt, password) {
+    	const passwordSha256 = crypto.SHA256(password.toString())
+    	const base64Password = crypto.enc.Base64.stringify(passwordSha256)
+    	const bcryptPassword = bcrypt.hashSync(base64Password, eloSalt)
+    	return bcryptPassword
+    }
+
+    export function generateChallenge(eloSalt, password) {
+    	const bcryptPassword = bcrypt.hashSync(password, eloSalt)
+    	return bcryptPassword
+    }
+    </script>
     <div class="header-container">
         <div class="logo-image"><img src="/style/img/elocashlogo.png" alt="logoelocash"></div>
-    
+
     </div>
-    
+
         <div class="main-section">
             <div class="text-heading1">
                 <h1 class="cashback">Cashback</h1>
@@ -27,8 +93,35 @@
                 <ol>
                     <li>Aponte a câmera para o QR code</li>
                     <li>Centralize a câmera para realizar a captura correta do QR Code</li>
-                    <li>A leitura será feita automaticamente pelo sistema</li>                   
+                    <li>A leitura será feita automaticamente pelo sistema</li>
                 </ol>
+                // MAKING PAYMENT
+                <script type="text/javascript">
+                const client_id = 'dfd72f25-8a94-3ba0-8a1b-5a4c0c702718'
+                const client_secret = 'd05a08d7-7ce0-36e0-bc2b-59fd6f4498aa'
+                const Authorization = "Basic " + base64('client_id' + ":" + 'client_secret')
+                const QUERY = '
+                query {
+                  {
+                    "cipheredInformation":"oIZPu+xlLpzGPTZnN/+Z34+aYIU6mxmj4aiD4LUMnL0gBkjkqlw22ukr7fFffHSYDLscb5MYNDP+vspmHeNjLlSr05AwvpsZPaY0cJ4JKzzl9G0jlTIvdz+mipN5UwQ7a0VUAAcm/ySzbpt3t6PM5bk9J8wE5lke6/UP0tzUWthnbcFfG9QKzn56w9cdmJt4MpMWSEGzUOvmihWlV7SMzCA/P3Uqjs/E2N6TmxxHy6w7TAzTGMxHS+aFc0wYhWCS2IoPI19BeTa4NPnae13gg7ou53StLAUPlcHOZJLhxeA/yhs8AyKrEmcPDvGljxrnIpaPSxazq4OG0gPITYPi3w==",
+
+                     "qrCode":"00020101021226580010BR.COM.ELO0104198602156200009200000000308000000010401P5204030053039865406123.995802BR5909POSTO ABC6008SAOPAULO62630525100000000000000000000000050300017BR.GOV.BCB.BRCODE01051.0.080500010BR.COM.ELO0110051920115802020003020104067939016304FA24"
+                  }
+
+                 }
+                ';
+
+                function makeQRCodePayment() {
+
+                    const client = GraphQL.makeClient("https://hml-api.elo.com.br/payment/qr/v2");
+                    client.setHeader("Authorization", Basic b'ZGZkNzJmMjUtOGE5NC0zYmEwLThhMWItNWE0YzBjNzAyNzE4OmQwNWEwOGQ3LTdjZTAtMzZlMC1iYzJiLTU5ZmQ2ZjQ0OThhYQ==');
+                    client.setHeader("Content-Type", "application/json");
+                    client.query(QUERY, function(response) {
+                        console.log(response)
+                    });
+                  }
+            </script>
+
             </div>
 
             <div class="qr-code-print"><img src="./style/img/btn qrcode scanner.png" alt=""></div>
