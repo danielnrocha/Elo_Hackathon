@@ -1,6 +1,6 @@
 # Elo Cash
 
-### Union Squad! – Juliana Lima, Letícia Fiorito, Everton Arruda e Daniel Rocha
+### Union Squad! – Juliana Lima, Daniel Rocha, Letícia Fiorito e Everton Arruda
 
 #### **Descrição**
 
