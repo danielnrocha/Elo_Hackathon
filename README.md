@@ -4,7 +4,7 @@
 
 #### **Descrição**
 
-Criamos um aplicativo que permite o usuário navega e pesquisar estabelecimentos ao seu redor que estejam oferecendo cashback (e que aceitem a bandeira Elo).
+Criamos um aplicativo que permite o usuário navegar e pesquisar estabelecimentos ao seu redor que estejam oferecendo cashback (e que aceitem a bandeira Elo).
 
 #### **Solução**
 
@@ -12,13 +12,14 @@ No modelo de negócio que idealizamos, inicialmente haveria um crescimento inorg
 
 #### **Tecnologias**
 
-Além do georreferenciamento, utilizamos tecnologias de cashless para reduzir a fricção na hora da compra, com o pagamento por meio de QR Code.
+Além de mais de uma tecnologia de georreferenciamento, utilizamos criptografias das chaves de acesso, conexão com o mecanismo de transferências (para pagamento e cashback) da Elo, além da tecnologia de cashless para reduzir a fricção na hora da compra, com o pagamento por meio de QR Code.
 
 #### **APIs utilizadas**
 
-1. Isoline Routing e Geocodign and Search - **Here**: utilizada para identificar a parceiros da Elo próximos (dentro de um perímetro determinado)
-2. Hub QRCode Elo Credenciadoras - **Elo**: utilizada para o pagamento de por meio de QR Code
-3. Peer-to-Peer (P2P) - **Elo**: utilizada para fazer as transferências de cashback entre o estabelecimento e o cliente
+1. Geocodign and Search - **Here**: utilizada para procurar a localização do usuário, bem como estabelecimentos ao redor
+2. Isoline Routing - **Here**: utilizada para restringir a procura de parceiros a um determinado perímetro (considerando o tempo de deslocamento)
+3. Hub QR Code Elo Canal Originador - **Elo**: utilizada para o pagamento de por meio de escaneamento do QR Code no celular
+4. Peer-to-Peer (P2P) - **Elo**: utilizada para fazer o pagamento do produto/serviço e para efetuar as transferências de cashback entre o estabelecimento e o cliente
 
 #### **Execução**
 
