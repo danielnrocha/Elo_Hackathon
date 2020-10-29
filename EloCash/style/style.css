@@ -74,39 +74,43 @@ iframe{
 }
 
 .credit-card-section{
-    width: 15rem;
-    height: 5rem ;
-    margin: 1.2rem;
-    padding: 10rem 1.5rem 0 1.2rem;
+    vertical-align: middle;
+    margin-left: 0.95rem;
+    margin-right: 0.5rem;
+    padding: 0.75rem 1.5rem 1.8rem 1.8rem;
+    width: 293px;
+    height: 137px;
     border-radius: 10px;
     background: #c4c4c4;
 }
 
-.credit-card-section h1{
-    
-    /* display inline-block;
-    vertical-align:top; */
-    display: center;
+.card-logo{
+    display: auto;
+    text-align: left;
+    margin-bottom: 1.2rem;
+    margin-right: 2.5rem;
+
+}
+.amount-brl{
+
+    display: block;
     text-align: center;
-    margin: 1.8rem 0 0 5rem;
+    padding-top: 1.2rem;
+    margin: 0 0.5rem 0 0.5rem;
     font-weight: 500;
     font-family: Lato;
     font-size: 30px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
-    /* line-height: normal; */
-    /* letter-spacing: -0.3px; */
-    display: center;
-    /* padding-right: 5rem; */
     color: #ffffff;
 
 }
 
-.credit-card-section p{
+.credit-card-number{
     /* display: inline-block;
     vertical-align:top; */
-    display: center;
+    display: block;
     text-align: center;
     font-family: Lato;
     font-size: 14px;
@@ -114,5 +118,18 @@ iframe{
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
+    color: #ffffff;
+}
+
+.auth-pay-btn button{
+    border-radius: 10px;
+    background-color: #9bc23b;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
     color: #ffffff;
 }
