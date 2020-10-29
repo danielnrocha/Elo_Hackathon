@@ -16,8 +16,9 @@ Além do georreferenciamento, utilizamos tecnologias de cashless para reduzir a 
 
 #### **APIs utilizadas**
 
-1. Isoline Routing e Geocodign and Search - **Here**
-2. Hub QRCode Elo Credenciadoras- **Elo**
+1. Isoline Routing e Geocodign and Search - **Here**: utilizada para identificar a parceiros da Elo próximos (dentro de um perímetro determinado)
+2. Hub QRCode Elo Credenciadoras - **Elo**: utilizada para o pagamento de por meio de QR Code
+3. Peer-to-Peer (P2P) - **Elo**: utilizada para fazer as transferências de cashback entre o estabelecimento e o cliente
 
 #### **Execução**
 
