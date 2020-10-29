@@ -122,6 +122,11 @@ iframe{
 }
 
 .auth-pay-btn button{
+    width: 6rem;
+    display: center;
+    margin-left: 8.25rem;
+    margin-top: 1.8rem;
+    height: 2.5rem;
     border-radius: 10px;
     background-color: #9bc23b;
     font-family: Lato;
