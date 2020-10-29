@@ -153,26 +153,34 @@ iframe{
     line-height: normal;
     text-align: center;
     color: #ffffff;
+
 }
 
 .scan-guide{
-    width: 207px;
-    height: 144px;
+    vertical-align: middle;
+    margin-top: 0.75rem;
+    margin-left:3.89rem;
+    margin-bottom: 7rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    width: 15rem;
+    height: 7rem;
     border-radius: 19px;
-    border: solid 1px #ffffff;
-    background-color: #839599;
+    background: #839599;
+    border: 1px solid #FFFFFF
 }
 
 .scan-guide ol{
-    width: 180px;
-    height: 98px;
+    position: relative;
+    padding-top: 0.1rem;
+    padding-left: 0.75rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
     font-family: lato;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
-    letter-spacing: -0.3px;
     text-align: left;
     color: #000000;
 }
@@ -182,3 +190,9 @@ iframe{
     left: 30px;
     top: 108px;
 }
+
+.qr-code-print{
+    position: center;
+    text-align: center;
+}
+
