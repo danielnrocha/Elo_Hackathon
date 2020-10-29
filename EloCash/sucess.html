@@ -14,14 +14,293 @@
 <body>
     <div class="header-container">
         <div class="logo-image"><img src="/style/img/elocashlogo.png" alt="logoelocash"></div>
-    
+
     </div>
-    
+    <script type="text/javascript">
+    // PAGAMENTO: RETIRADA DE FUNDOS
+    const client_id = 'dfd72f25-8a94-3ba0-8a1b-5a4c0c702718'
+    const client_secret = 'd05a08d7-7ce0-36e0-bc2b-59fd6f4498aa'
+    const Authorization = "Basic " + base64('client_id' + ":" + 'client_secret')
+    const QUERY = '
+    query {
+              mutation{
+          createPullTransfer(
+              input:{
+                  clientMutationId: "12345"
+                  acquirer:{
+                      id: "d9325232-84fe-46ed-bd6c-ba010f99b7c7"
+                      countryCode: "BRA"
+                      code: "01"
+                  }
+                  merchant:{
+                      name: "Teste"
+                      legalName: "Teste LTDA"
+                      description: "description merchant",
+                      legalIds:{
+                          cnpj: "121212121212121",
+                          rg: {
+                              number: "444"
+                              issueDate: "2010-12-31"
+                              issuerState: "sp",
+                              issuerOrganization: "elo"
+                          }
+                      }
+                      contact:{
+                          type: PHONE
+                          context: "Trabalho"
+                          value: "+5511999991111"
+                      }
+                      address:{
+                          context: "casa",
+                          country: "Brasil"
+                          city: "São Paulo"
+                          state: "São Paulo"
+                          zip: "123456788"
+                          number: 1234
+                          place: "Paulista"
+                      }
+                      url: "WWW.ELO.COM.BR",
+                      iso: 1111
+                      countryCode: "BRA"
+                      idCode: "123"
+                  }
+                  # Caso você possua um cartão já cadastrado basta utilizar seu cardId
+                  cardId: "1234"
+                  # se você não o possuir utilize o campo sensitive
+                  sensitive: "dasdpaiwqoedandk1993u1ekqkejqweuq90193ueqdm"
+                  cipheredTransactionCryptogram: "M7uxALQqkH9IYOY4Qc09MsUqG87WZ6gMbindAab7yYaX6XrQG6bZOkBhjCkx4q1oZulHzJoUoZBQUdypm2VBV56Gc4vT7wOkjZOa"
+                  amount:{
+                      currency: "BRL"
+                      value: "10.00"
+                  }
+                  systemsTraceAuditNumber: "123"
+                  transactionDateTime: "2018-10-30T12:00:00-03:00"
+                  transactionIdentifier: "123"
+                  retrievalReferenceNumber: "123"
+                  codeUsage: 70
+                  origin: {
+                      geolocation: {
+                          lon: 9,
+                          lat: 8,
+                          alt: 7,
+                          precision: 6,
+                          source: GPS
+                      },
+                      device: {
+                          id: "c5081780-2809-11ea-a",
+                          userAgent: "user AGENT",
+                          brand: "BRAND",
+                          model: "MODEL",
+                          type: MOTORCYCLE,
+                          serialNumber: "832809320983429804328",
+                          imei: "WS2@",
+                          os: "77636363",
+                      }
+                  },
+                  pointOfService: {
+                      type: 3
+                      localization: 3
+                      cardPresentTransaction: false
+                      cardCaptureCapability: 0
+                      securityTransaction: 0
+                      typePOS: "M"
+                      inputCapability: "C"
+                      panEntryMode: "86"
+                      terminalIdentifier: "12345678"
+                  }
+                  receiver: {
+                        name: "João da Silva"
+                        firstName: "João"
+                        legalIds: {
+                            cpf: "72814394070"
+                            rg: {
+                                number: "315689808"
+                                issueDate: "2010-12-31"
+                                issuerState: "sp",
+                                issuerOrganization: "ssp"
+                            }
+                        }
+                        contacts: [
+                          {
+                            type: PHONE
+                            context: "Trabalho"
+                            value: "+5511999991111"
+                          },
+                          {
+                            type: EMAIL
+                            context: "Trabalho"
+                            value: "elo@elo.com.br"
+                            }
+
+                        ],
+                        address: {
+                            country: "Brasil"
+                            city: "São Paulo"
+                            state: "São Paulo"
+                            zip: "123456788"
+                            number: 1234
+                            place: "Paulista"
+                        }
+                        birthday: "1992-02-14",
+                            bin: "655500",
+                            last4: "1234"
+                    }
+              }
+          )
+
+         }
+       }
+    ';
+
+    function makePullTransfer() {
+
+        const client = GraphQL.makeClient("https://hml-api.elo.com.br/graphql");
+        client.setHeader("Authorization", Basic b'ZGZkNzJmMjUtOGE5NC0zYmEwLThhMWItNWE0YzBjNzAyNzE4OmQwNWEwOGQ3LTdjZTAtMzZlMC1iYzJiLTU5ZmQ2ZjQ0OThhYQ==');
+        client.setHeader("Content-Type", "application/json");
+        client.query(QUERY, function(response) {
+            console.log(response)
+        });
+      }
+
+
+      // CASHBACK: RECEBIMENTO DE FUNDOS
+      const QUERY = '
+      query {
+                mutation{
+          createPushTransfer(
+            input:{
+                clientMutationId: "33333"
+                transferType: P2P
+                acquirer:{
+                    id: "d9325232-84fe-46ed-bd6c-ba010f99b7c7"
+                    countryCode: "BRA"
+                      code: "01"
+                }
+                merchant: {
+                    name: "Teste"
+                    legalName: "Teste LTDA"
+                    description: "description merchant",
+                    legalIds:{
+                        cnpj: "121212121212121"
+                    }
+                    contact:{
+                        type: PHONE
+                        context: "Trabalho"
+                        value: "+5511999991111"
+                    }
+                    address:{
+                        country: "Brasil"
+                        city: "São Paulo"
+                        state: "São Paulo"
+                        zip: "123456788"
+                        number: 1234
+                        place: "Paulista"
+                    }
+                    url: "WWW.ELO.COM.BR",
+                    iso: 1111
+                    countryCode: "BRA"
+                    idCode: "123"
+                }
+
+                # Caso você possua um cartão já cadastrado basta utilizar seu cardId
+                cardId: "1234"
+                # se você não o possuir utilize o campo sensitive
+                sensitive: "dasdpaiwqoedandk1993u1ekqkejqweuq90193ueqdm"
+
+                amount:{
+                    currency: "BRL"
+                    value: "10.00"
+                }
+
+                  #Informações de quem irá receber o valor transacionado
+                receiver:{
+                    name: "João"
+                    legalIds:{
+                        cpf: "1233133123457890"
+                    }
+                    address:{
+                        country: "Brasil"
+                        city: "São Paulo"
+                        state: "São Paulo"
+                        zip: "123456788"
+                        number: 1234
+                        place: "Paulista"
+                    }
+                    birthday: "1992-02-14"
+                    gender: MALE,
+                    maritalStatus: COMMON_LAW_MARRIED,
+                    sensitive: "dasdpaiwqoedandk1993u1ekqkejqweuq90193ueqdm",
+                    cipheredTransactionCryptogram: "M7uxALQqkH9IYOY4Qc09MsUqG87WZ6gMbindAab7yYaX6XrQG6bZOkBhjCkx4q1oZulHzJoUoZBQUdypm2VBV56Gc4vT7wOkjZOa",
+                    income: {
+                        personal: 123.00,
+                        family: 1234.00,
+                        currency: "BRL"
+                    },
+                    occupationId: "926d8567-8dc1-45c1-83bd-d7e1a2532239",
+                    contact:{
+                        type: PHONE
+                        context: "Trabalho"
+                        value: "+5511999991111"
+                    }
+                }
+                systemsTraceAuditNumber: "123"
+                transactionDateTime: "2018-10-30T12:00:00-03:00"
+                transactionIdentifier: "112"
+                retrievalReferenceNumber: "123"
+                codeUsage: 70
+                origin: {
+                    geolocation: {
+                        lon: 9,
+                        lat: 8,
+                        alt: 7,
+                        precision: 6,
+                        source: GPS
+                    },
+                    device: {
+                        userAgent: "user AGENT",
+                        brand: "BRAND",
+                        model: "MODEL",
+                        type: MOTORCYCLE,
+                        serialNumber: "832809320983429804328",
+                        imei: "098765432112345",
+                        os: "77636363",
+                    }
+                },
+                pointOfService: {
+                    type: 3
+                    localization: 3
+                    cardPresentTransaction: false
+                    cardCaptureCapability: 0
+                    securityTransaction: 0
+                    typePOS: "M"
+                    inputCapability: "C"
+                    panEntryMode: "86"
+                    terminalIdentifier: "12345678"
+                }
+                transactionIdentifierPull: "3342b72f-2292-429b-b6e1-b9bc43e8c3a2"
+                sourceOfFundsCode: "0"
+            }
+          )
+
+         }
+       }
+      ';
+
+      function makePushTransfer() {
+
+          const client = GraphQL.makeClient("https://hml-api.elo.com.br/graphql");
+          client.setHeader("Authorization", Basic b'ZGZkNzJmMjUtOGE5NC0zYmEwLThhMWItNWE0YzBjNzAyNzE4OmQwNWEwOGQ3LTdjZTAtMzZlMC1iYzJiLTU5ZmQ2ZjQ0OThhYQ==');
+          client.setHeader("Content-Type", "application/json");
+          client.query(QUERY, function(response) {
+              console.log(response)
+          });
+        }
+    </script>
     <div class="main-section">
         <div class="text-heading1">
             <h1 class="cashback">Pagamento efetivado</h1>
             <a href="/bill.html" class="back-button"><img src="./style/img/mdi_arrow_back_ios.png" alt=""></a>
-        
+
 
             <div class="reminder-alert">
                 <img src="/style/img/mdi_warning.png" alt="">
@@ -44,8 +323,8 @@
                 <button><a href="/index.html" class="button">Voltar à Tela Inicial</a> </button>
             </div>
 
-        </div>    
+        </div>
 
-    </div>    
+    </div>
 </body>
 </html>
