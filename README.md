@@ -1,4 +1,4 @@
-# Elo Cash
+# Projeto Elo Cash
 
 ### Union Squad! – Juliana Lima, Daniel Rocha, Letícia Fiorito e Everton Arruda
 
