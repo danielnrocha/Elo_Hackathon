@@ -28,18 +28,10 @@ Além de mais de uma tecnologia de georreferenciamento, utilizamos criptografias
 
 #### **APIs utilizadas**
 
-<p align="justify">
 1. Geocodign and Search - **Here**: utilizada para procurar a localização do usuário, bem como estabelecimentos ao redor
-</p>
-<p align="justify">
 2. Isoline Routing - **Here**: utilizada para restringir a procura de parceiros a um determinado perímetro (considerando o tempo de deslocamento)
-</p>
-<p align="justify">
 3. Hub QR Code Elo Canal Originador - **Elo**: utilizada para o pagamento de por meio de escaneamento do QR Code no celular
-</p>
-<p align="justify">
 4. Peer-to-Peer (P2P) - **Elo**: utilizada para fazer o pagamento do produto/serviço e para efetuar as transferências de cashback entre o estabelecimento e o cliente
-</p>
 
 #### **Execução**
 
