@@ -1,6 +1,12 @@
 # Projeto Elo Cash
-
+## Hackathon ELO APICON (2020) – 🏆 2º Lugar Geral
 ### Union Squad! – Juliana Lima, Daniel Rocha, Letícia Fiorito e Everton Arruda
+
+<img src="https://github.com/danielnrocha/hackathon-apicon-2020-union-squad/blob/main/LogoHackathonElo.png" width="600">
+
+Hackathon APICON ELO 2020 🏆:
+1. Video Pitch: https://youtu.be/yzC4dJbBLII
+2. Video App Mockup: https://youtu.be/Hz5B4wvOJsc
 
 #### **Descrição**
 
