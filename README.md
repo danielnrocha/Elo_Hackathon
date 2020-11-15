@@ -3,12 +3,11 @@
 ### Equpe Union Squad – Juliana Lima, Daniel Rocha, Letícia Fiorito e Everton Arruda
 Desafio: "Como popularizar pagamentos digitais no cotidiano do brasileiro combinando com as APIs da Elo?"
 
-<img src="https://github.com/danielnrocha/hackathon-apicon-2020-union-squad/blob/main/BrandEloCash.png" width="800">
-
-Hackathon APICON ELO 2020 🏆:
 1. Video Pitch: https://youtu.be/yzC4dJbBLII
 2. Video App Mockup: https://youtu.be/Hz5B4wvOJsc
 3. Apresentação de Slides: https://bit.ly/2JZlopS
+
+<img src="https://github.com/danielnrocha/hackathon-apicon-2020-union-squad/blob/main/BrandEloCash.png" width="800">
 
 #### **Descrição**
 
