@@ -6,7 +6,7 @@ Desafio: "Como popularizar pagamentos digitais no cotidiano do brasileiro combin
 1. Video Pitch: https://youtu.be/yzC4dJbBLII
 2. Video App Mockup: https://youtu.be/Hz5B4wvOJsc
 3. Apresentação de Slides: https://bit.ly/2JZlopS
-4. Artigo informando os premiados: https://prensa.li/open-banking-day/premiacao-hackathon-elo-apicon-2020/
+4. Artigo informando os premiados: https://bit.ly/33pDw2S
 
 <img src="https://github.com/danielnrocha/hackathon-apicon-2020-union-squad/blob/main/BrandEloCash.png" width="800">
 
